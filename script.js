@@ -35,19 +35,19 @@ const mediaList = [
         id: 1,
 
         title:
-            "Cyber Night",
+            "ujicoba",
 
         artist:
-            "NEONFLUX",
+            "RceStudioGM",
 
         type:
-            "audio",
+            "video",
 
         src:
-            "assets/media/song-01.mp3",
+            "assets/media/video1.mp4",
 
         cover:
-            "assets/covers/cyber-night.jpg"
+            "assets/covers/covers1.jpg"
 
     },
 
