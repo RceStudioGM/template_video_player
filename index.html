@@ -1,0 +1,718 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <!-- =====================================================
+         RESPONSIVE VIEWPORT
+    ====================================================== -->
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="theme-color"
+        content="#080a0d"
+    >
+
+    <meta
+        name="description"
+        content="Modern Cyber-Sleek Media Player"
+    >
+
+    <title>NEONFLUX — Media Player</title>
+
+
+    <!-- =====================================================
+         FONT
+    ====================================================== -->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin
+    >
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+        rel="stylesheet"
+    >
+
+
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
+
+</head>
+
+
+<body>
+
+
+    <!-- =====================================================
+         APPLICATION SHELL
+    ====================================================== -->
+
+    <div class="app-shell">
+
+
+        <!-- =================================================
+             SIDEBAR
+        ================================================== -->
+
+        <aside
+            class="sidebar"
+            id="sidebar"
+        >
+
+            <div class="brand">
+
+                <!-- GANTI NAMA PLAYER DI SINI -->
+
+                <div class="brand-icon">
+                    N
+                </div>
+
+                <span>
+                    NEONFLUX
+                </span>
+
+            </div>
+
+
+            <!-- MOBILE SIDEBAR CLOSE -->
+
+            <button
+                class="sidebar-close"
+                id="sidebarClose"
+                aria-label="Tutup menu"
+            >
+                ×
+            </button>
+
+
+            <!-- PRIMARY NAVIGATION -->
+
+            <nav class="sidebar-nav">
+
+                <p class="nav-label">
+                    MAIN
+                </p>
+
+                <button
+                    class="nav-item active"
+                    data-filter="all"
+                >
+
+                    <span class="nav-icon">
+                        ◈
+                    </span>
+
+                    Beranda
+
+                </button>
+
+
+                <button
+                    class="nav-item"
+                    data-filter="audio"
+                >
+
+                    <span class="nav-icon">
+                        ♪
+                    </span>
+
+                    Audio
+
+                </button>
+
+
+                <button
+                    class="nav-item"
+                    data-filter="video"
+                >
+
+                    <span class="nav-icon">
+                        ▶
+                    </span>
+
+                    Video
+
+                </button>
+
+
+                <button
+                    class="nav-item"
+                    data-filter="playlist"
+                >
+
+                    <span class="nav-icon">
+                        ≡
+                    </span>
+
+                    Playlist
+
+                </button>
+
+            </nav>
+
+
+            <!-- LIBRARY -->
+
+            <div class="sidebar-library">
+
+                <p class="nav-label">
+                    LIBRARY
+                </p>
+
+                <button class="library-item">
+                    Recently Played
+                </button>
+
+                <button class="library-item">
+                    Favorites
+                </button>
+
+                <button class="library-item">
+                    Downloads
+                </button>
+
+            </div>
+
+
+            <!-- SIDEBAR STATUS -->
+
+            <div class="sidebar-status">
+
+                <span class="status-dot"></span>
+
+                SYSTEM ONLINE
+
+            </div>
+
+        </aside>
+
+
+
+        <!-- MOBILE OVERLAY -->
+
+        <div
+            class="sidebar-overlay"
+            id="sidebarOverlay"
+        ></div>
+
+
+
+        <!-- =================================================
+             MAIN CONTENT
+        ================================================== -->
+
+        <main class="main-content">
+
+
+            <!-- =================================================
+                 TOPBAR
+            ================================================== -->
+
+            <header class="topbar">
+
+                <button
+                    class="mobile-menu"
+                    id="mobileMenu"
+                    aria-label="Buka menu"
+                >
+                    ☰
+                </button>
+
+
+                <div class="search-box">
+
+                    <span class="search-icon">
+                        ⌕
+                    </span>
+
+                    <!-- SEARCH -->
+
+                    <input
+                        type="search"
+                        id="searchInput"
+                        placeholder="Search media..."
+                        autocomplete="off"
+                    >
+
+                </div>
+
+
+                <div class="topbar-actions">
+
+                    <button
+                        class="icon-button"
+                        title="Notifications"
+                    >
+                        ◌
+                    </button>
+
+                    <div class="avatar">
+                        U
+                    </div>
+
+                </div>
+
+            </header>
+
+
+
+            <!-- =================================================
+                 CONTENT
+            ================================================== -->
+
+            <div class="content">
+
+
+                <!-- =================================================
+                     HERO / MAIN PLAYER
+                ================================================== -->
+
+                <section class="player-section">
+
+
+                    <!-- PLAYER -->
+
+                    <div class="main-player">
+
+
+                        <!-- VIDEO ELEMENT
+                             Hidden automatically for AUDIO -->
+
+                        <video
+                            id="videoPlayer"
+                            class="video-player"
+                            playsinline
+                            preload="metadata"
+                        ></video>
+
+
+                        <!-- AUDIO VISUAL AREA -->
+
+                        <div
+                            class="audio-visual"
+                            id="audioVisual"
+                        >
+
+                            <div class="ambient-glow"></div>
+
+                            <img
+                                id="mainCover"
+                                src=""
+                                alt="Album cover"
+                            >
+
+
+                            <!-- VISUALIZER -->
+
+                            <div
+                                class="visualizer"
+                                id="visualizer"
+                                aria-hidden="true"
+                            >
+
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                                <span></span>
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- PLAYER OVERLAY -->
+
+                        <div
+                            class="player-loading"
+                            id="playerLoading"
+                        >
+
+                            <div class="spinner"></div>
+
+                        </div>
+
+
+                        <!-- MEDIA TYPE -->
+
+                        <div
+                            class="media-type-label"
+                            id="mediaTypeLabel"
+                        >
+                            AUDIO
+                        </div>
+
+
+                        <!-- VIDEO FULLSCREEN -->
+
+                        <button
+                            class="video-fullscreen"
+                            id="videoFullscreen"
+                            title="Fullscreen"
+                        >
+                            ⛶
+                        </button>
+
+                    </div>
+
+
+
+                    <!-- MEDIA INFORMATION -->
+
+                    <div class="now-playing-info">
+
+
+                        <div>
+
+                            <!-- TITLE -->
+
+                            <span class="eyebrow">
+                                NOW PLAYING
+                            </span>
+
+                            <h1 id="mainTitle">
+                                Select a media
+                            </h1>
+
+                            <p id="mainArtist">
+                                —
+                            </p>
+
+                        </div>
+
+
+                        <button
+                            class="favorite-button"
+                            id="favoriteButton"
+                            aria-label="Favorite"
+                        >
+                            ♡
+                        </button>
+
+                    </div>
+
+
+                </section>
+
+
+
+                <!-- =================================================
+                     PLAYLIST HEADER
+                ================================================== -->
+
+                <section class="library-section">
+
+
+                    <div class="section-header">
+
+                        <div>
+
+                            <span class="eyebrow">
+                                YOUR LIBRARY
+                            </span>
+
+                            <h2>
+                                Explore media
+                            </h2>
+
+                        </div>
+
+
+                        <div class="view-switcher">
+
+                            <button
+                                class="view-button active"
+                                data-view="grid"
+                            >
+                                ⊞
+                            </button>
+
+                            <button
+                                class="view-button"
+                                data-view="list"
+                            >
+                                ☰
+                            </button>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- FILTER CHIPS -->
+
+                    <div class="filter-row">
+
+                        <button
+                            class="filter-chip active"
+                            data-filter="all"
+                        >
+                            All
+                        </button>
+
+                        <button
+                            class="filter-chip"
+                            data-filter="audio"
+                        >
+                            Audio
+                        </button>
+
+                        <button
+                            class="filter-chip"
+                            data-filter="video"
+                        >
+                            Video
+                        </button>
+
+                    </div>
+
+
+
+                    <!-- MEDIA COLLECTION -->
+
+                    <div
+                        class="media-grid"
+                        id="mediaGrid"
+                    >
+                        <!-- DIISI OLEH JAVASCRIPT -->
+                    </div>
+
+
+                    <!-- EMPTY SEARCH -->
+
+                    <div
+                        class="empty-state"
+                        id="emptyState"
+                    >
+
+                        <div>
+                            ⌕
+                        </div>
+
+                        <h3>
+                            No media found
+                        </h3>
+
+                        <p>
+                            Coba kata kunci pencarian lainnya.
+                        </p>
+
+                    </div>
+
+
+                </section>
+
+
+            </div>
+
+        </main>
+
+
+
+        <!-- =================================================
+             STICKY BOTTOM PLAYER
+        ================================================== -->
+
+        <section class="bottom-player">
+
+
+            <!-- PROGRESS BAR -->
+
+            <div
+                class="progress-container"
+                id="progressContainer"
+            >
+
+                <div
+                    class="progress-fill"
+                    id="progressFill"
+                ></div>
+
+            </div>
+
+
+            <div class="bottom-player-inner">
+
+
+                <!-- CURRENT MEDIA -->
+
+                <div class="mini-media">
+
+
+                    <img
+                        id="miniCover"
+                        src=""
+                        alt=""
+                    >
+
+
+                    <div class="mini-info">
+
+                        <strong id="miniTitle">
+                            Nothing Playing
+                        </strong>
+
+                        <span id="miniArtist">
+                            Select a media
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- MAIN CONTROLS -->
+
+                <div class="player-controls">
+
+
+                    <div class="control-buttons">
+
+                        <button
+                            id="shuffleButton"
+                            class="control-button"
+                            title="Shuffle"
+                        >
+                            ⤨
+                        </button>
+
+
+                        <button
+                            id="previousButton"
+                            class="control-button"
+                            title="Previous"
+                        >
+                            ⏮
+                        </button>
+
+
+                        <button
+                            id="playButton"
+                            class="play-button"
+                            title="Play / Pause"
+                        >
+                            ▶
+                        </button>
+
+
+                        <button
+                            id="nextButton"
+                            class="control-button"
+                            title="Next"
+                        >
+                            ⏭
+                        </button>
+
+
+                        <button
+                            id="repeatButton"
+                            class="control-button"
+                            title="Repeat"
+                        >
+                            ↻
+                        </button>
+
+                    </div>
+
+
+                    <!-- TIME -->
+
+                    <div class="time-row">
+
+                        <span id="currentTime">
+                            0:00
+                        </span>
+
+                        <input
+                            type="range"
+                            id="seekBar"
+                            min="0"
+                            max="100"
+                            value="0"
+                            step="0.1"
+                        >
+
+                        <span id="duration">
+                            0:00
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- VOLUME -->
+
+                <div class="volume-controls">
+
+
+                    <button
+                        id="muteButton"
+                        class="control-button"
+                        title="Mute"
+                    >
+                        🔊
+                    </button>
+
+
+                    <input
+                        type="range"
+                        id="volumeSlider"
+                        min="0"
+                        max="1"
+                        step="0.01"
+                        value="1"
+                    >
+
+
+                    <button
+                        id="queueButton"
+                        class="control-button"
+                        title="Queue"
+                    >
+                        ☰
+                    </button>
+
+                </div>
+
+
+            </div>
+
+
+        </section>
+
+    </div>
+
+
+
+    <!-- =====================================================
+         JAVASCRIPT
+    ====================================================== -->
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
